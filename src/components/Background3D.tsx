@@ -1,6 +1,6 @@
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, Box, Torus, Octahedron } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -47,24 +47,28 @@ const FloatingShape = ({ position, color, shape, scale, rotationSpeed }: Floatin
   return (
     <mesh position={position} ref={meshRef}>
       {shape === 'sphere' && (
-        <Sphere args={[1, 32, 32]}>
+        <>
+          <sphereGeometry args={[1, 32, 32]} />
           <meshStandardMaterial {...materialProps} />
-        </Sphere>
+        </>
       )}
       {shape === 'box' && (
-        <Box args={[1.5, 1.5, 1.5]}>
+        <>
+          <boxGeometry args={[1.5, 1.5, 1.5]} />
           <meshStandardMaterial {...materialProps} />
-        </Box>
+        </>
       )}
       {shape === 'torus' && (
-        <Torus args={[1.2, 0.4, 16, 32]}>
+        <>
+          <torusGeometry args={[1.2, 0.4, 16, 32]} />
           <meshStandardMaterial {...materialProps} />
-        </Torus>
+        </>
       )}
       {shape === 'octahedron' && (
-        <Octahedron args={[1.2]}>
+        <>
+          <octahedronGeometry args={[1.2]} />
           <meshStandardMaterial {...materialProps} />
-        </Octahedron>
+        </>
       )}
     </mesh>
   );
@@ -116,7 +120,7 @@ const ParticleField = ({ isDark }: { isDark: boolean }) => {
   );
 };
 
-// Animated waves/rings for more dynamic background
+// Fixed AnimatedRings component using native Three.js geometry
 const AnimatedRings = ({ isDark }: { isDark: boolean }) => {
   const ringsRef = useRef<THREE.Group>(null);
 
@@ -131,12 +135,12 @@ const AnimatedRings = ({ isDark }: { isDark: boolean }) => {
   return (
     <group ref={ringsRef}>
       {[...Array(3)].map((_, i) => (
-        <Torus
+        <mesh
           key={i}
-          args={[8 + i * 2, 0.05, 8, 64]}
           position={[0, 0, -15]}
           rotation={[Math.PI / 2, 0, 0]}
         >
+          <torusGeometry args={[8 + i * 2, 0.05, 8, 64]} />
           <meshStandardMaterial
             color={isDark ? '#8b5cf6' : '#3b82f6'}
             transparent
@@ -144,7 +148,7 @@ const AnimatedRings = ({ isDark }: { isDark: boolean }) => {
             emissive={isDark ? '#8b5cf6' : '#3b82f6'}
             emissiveIntensity={0.1}
           />
-        </Torus>
+        </mesh>
       ))}
     </group>
   );
