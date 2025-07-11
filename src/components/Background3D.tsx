@@ -1,6 +1,6 @@
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, Box, Torus } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -24,10 +24,24 @@ const FloatingShape = ({ position, color, shape }: FloatingShapeProps) => {
 
   return (
     <mesh position={position} ref={meshRef}>
-      {shape === 'sphere' && <Sphere args={[0.5, 32, 32]} />}
-      {shape === 'box' && <Box args={[0.8, 0.8, 0.8]} />}
-      {shape === 'torus' && <Torus args={[0.6, 0.3, 16, 32]} />}
-      <meshStandardMaterial color={color} transparent opacity={0.6} />
+      {shape === 'sphere' && (
+        <>
+          <sphereGeometry args={[0.5, 32, 32]} />
+          <meshStandardMaterial color={color} transparent opacity={0.6} />
+        </>
+      )}
+      {shape === 'box' && (
+        <>
+          <boxGeometry args={[0.8, 0.8, 0.8]} />
+          <meshStandardMaterial color={color} transparent opacity={0.6} />
+        </>
+      )}
+      {shape === 'torus' && (
+        <>
+          <torusGeometry args={[0.6, 0.3, 16, 32]} />
+          <meshStandardMaterial color={color} transparent opacity={0.6} />
+        </>
+      )}
     </mesh>
   );
 };
