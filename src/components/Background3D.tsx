@@ -22,22 +22,11 @@ const FloatingShape = ({ position, color, shape }: FloatingShapeProps) => {
     }
   });
 
-  const ShapeComponent = () => {
-    switch (shape) {
-      case 'sphere':
-        return <Sphere args={[0.5, 32, 32]} ref={meshRef} />;
-      case 'box':
-        return <Box args={[0.8, 0.8, 0.8]} ref={meshRef} />;
-      case 'torus':
-        return <Torus args={[0.6, 0.3, 16, 32]} ref={meshRef} />;
-      default:
-        return <Sphere args={[0.5, 32, 32]} ref={meshRef} />;
-    }
-  };
-
   return (
-    <mesh position={position}>
-      <ShapeComponent />
+    <mesh position={position} ref={meshRef}>
+      {shape === 'sphere' && <Sphere args={[0.5, 32, 32]} />}
+      {shape === 'box' && <Box args={[0.8, 0.8, 0.8]} />}
+      {shape === 'torus' && <Torus args={[0.6, 0.3, 16, 32]} />}
       <meshStandardMaterial color={color} transparent opacity={0.6} />
     </mesh>
   );
@@ -48,13 +37,17 @@ interface Background3DProps {
 }
 
 const Background3D = ({ isDark }: Background3DProps) => {
-  const shapes = [
+  const shapes: Array<{
+    position: [number, number, number];
+    color: string;
+    shape: 'sphere' | 'box' | 'torus';
+  }> = [
     { position: [-4, 2, -5], color: isDark ? '#8b5cf6' : '#3b82f6', shape: 'sphere' },
     { position: [4, -2, -3], color: isDark ? '#06b6d4' : '#8b5cf6', shape: 'box' },
     { position: [-2, -3, -4], color: isDark ? '#f59e0b' : '#06b6d4', shape: 'torus' },
     { position: [3, 3, -6], color: isDark ? '#ec4899' : '#f59e0b', shape: 'sphere' },
     { position: [-5, -1, -2], color: isDark ? '#10b981' : '#ec4899', shape: 'box' },
-  ] as const;
+  ];
 
   return (
     <div className="fixed inset-0 -z-10">
