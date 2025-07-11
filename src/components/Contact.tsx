@@ -43,15 +43,18 @@ const Contact = () => {
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left Column - Icon Cloud and Contact Info */}
+          {/* Left Column - Technologies I Work With */}
           <div className="space-y-8">
-            <div className="backdrop-blur-md bg-white/10 dark:bg-black/10 rounded-3xl p-8 border border-white/20 dark:border-white/10 hover:bg-white/15 dark:hover:bg-black/15 transition-all duration-500">
+            <div className="backdrop-blur-md bg-white/10 dark:bg-gray-800 rounded-3xl p-8 border border-white/20 dark:border-gray-700 hover:bg-white/15 dark:hover:bg-gray-700 transition-all duration-500">
               <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white">
                 Technologies I Work With
               </h3>
               <IconCloudDemo />
             </div>
-            
+          </div>
+          
+          {/* Right Column - Get In Touch */}
+          <div className="space-y-8">
             <div className="space-y-6">
               <div>
                 <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">
@@ -66,7 +69,7 @@ const Contact = () => {
               <div className="space-y-4">
                 <div className="flex items-center space-x-4 group cursor-pointer hover:scale-105 transition-transform duration-300"
                      onClick={() => window.open('mailto:athinpb@gmail.com', '_blank')}>
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-500 dark:to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Mail className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -77,7 +80,7 @@ const Contact = () => {
                 
                 <div className="flex items-center space-x-4 group cursor-pointer hover:scale-105 transition-transform duration-300"
                      onClick={() => window.open('https://linkedin.com/in/athin-pb', '_blank')}>
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-500 dark:to-cyan-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Linkedin className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -88,7 +91,7 @@ const Contact = () => {
                 
                 <div className="flex items-center space-x-4 group cursor-pointer hover:scale-105 transition-transform duration-300"
                      onClick={() => window.open('https://github.com/Pbathin', '_blank')}>
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-gray-700 to-gray-900 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-600 dark:to-gray-800 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Github className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -98,7 +101,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-center space-x-4 group hover:scale-105 transition-transform duration-300">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 dark:from-green-500 dark:to-emerald-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -108,58 +111,58 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </div>
-          
-          {/* Right Column - Contact Form */}
-          <div className="backdrop-blur-md bg-white/10 dark:bg-black/10 rounded-3xl p-8 border border-white/20 dark:border-white/10 hover:bg-white/15 dark:hover:bg-black/15 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
-            <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white">
-              Send Me a Message
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
+            
+            {/* Contact Form */}
+            <div className="backdrop-blur-md bg-white/10 dark:bg-gray-800 rounded-3xl p-8 border border-white/20 dark:border-gray-700 hover:bg-white/15 dark:hover:bg-gray-700 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
+              <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white">
+                Send Me a Message
+              </h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <Input 
+                    name="name"
+                    placeholder="Your Name" 
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="bg-white/5 dark:bg-gray-700 border-white/20 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 hover:bg-white/10 dark:hover:bg-gray-600 focus:bg-white/10 dark:focus:bg-gray-600 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
+                  />
+                  <Input 
+                    name="email"
+                    type="email" 
+                    placeholder="Your Email" 
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="bg-white/5 dark:bg-gray-700 border-white/20 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 hover:bg-white/10 dark:hover:bg-gray-600 focus:bg-white/10 dark:focus:bg-gray-600 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
+                  />
+                </div>
                 <Input 
-                  name="name"
-                  placeholder="Your Name" 
-                  value={formData.name}
+                  name="subject"
+                  placeholder="Subject" 
+                  value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="bg-white/5 border-white/20 rounded-xl focus:border-purple-400 transition-all duration-300 hover:bg-white/10 focus:bg-white/10"
+                  className="bg-white/5 dark:bg-gray-700 border-white/20 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 hover:bg-white/10 dark:hover:bg-gray-600 focus:bg-white/10 dark:focus:bg-gray-600 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
                 />
-                <Input 
-                  name="email"
-                  type="email" 
-                  placeholder="Your Email" 
-                  value={formData.email}
+                <Textarea 
+                  name="message"
+                  placeholder="Your Message" 
+                  rows={5}
+                  value={formData.message}
                   onChange={handleChange}
                   required
-                  className="bg-white/5 border-white/20 rounded-xl focus:border-purple-400 transition-all duration-300 hover:bg-white/10 focus:bg-white/10"
+                  className="bg-white/5 dark:bg-gray-700 border-white/20 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 resize-none transition-all duration-300 hover:bg-white/10 dark:hover:bg-gray-600 focus:bg-white/10 dark:focus:bg-gray-600 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
                 />
-              </div>
-              <Input 
-                name="subject"
-                placeholder="Subject" 
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="bg-white/5 border-white/20 rounded-xl focus:border-purple-400 transition-all duration-300 hover:bg-white/10 focus:bg-white/10"
-              />
-              <Textarea 
-                name="message"
-                placeholder="Your Message" 
-                rows={5}
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="bg-white/5 border-white/20 rounded-xl focus:border-purple-400 resize-none transition-all duration-300 hover:bg-white/10 focus:bg-white/10"
-              />
-              <Button 
-                type="submit" 
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
-              >
-                <Send className="h-5 w-5 mr-2" />
-                Send Message
-              </Button>
-            </form>
+                <Button 
+                  type="submit" 
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 dark:from-purple-500 dark:to-pink-500 dark:hover:from-purple-600 dark:hover:to-pink-600 text-white py-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                >
+                  <Send className="h-5 w-5 mr-2" />
+                  Send Message
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
