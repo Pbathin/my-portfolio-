@@ -3,6 +3,16 @@ import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  const downloadResume = () => {
+    // Create a temporary link element to download the resume directly
+    const link = document.createElement('a');
+    link.href = 'https://github.com/Pbathin/Resume/raw/main/Athin_PB_Software_Developer.pdf';
+    link.download = 'Athin_PB_Software_Developer.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative">
       <div className="text-center max-w-6xl mx-auto">
@@ -46,7 +56,7 @@ const Hero = () => {
             variant="outline" 
             size="lg"
             className="px-8 py-6 text-lg rounded-full backdrop-blur-md bg-white/10 dark:bg-black/10 border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 hover:scale-105"
-            onClick={() => window.open('https://github.com/Pbathin/Resume/blob/main/Athin_PB_Software_Developer.pdf', '_blank')}
+            onClick={downloadResume}
           >
             <Download className="h-5 w-5 mr-2" />
             Download Resume

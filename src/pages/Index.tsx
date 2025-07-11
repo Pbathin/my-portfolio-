@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import ThemeToggle from '@/components/ThemeToggle';
 import Background3D from '@/components/Background3D';
+import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
@@ -36,44 +37,18 @@ const Index = () => {
         : 'bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 text-gray-900'
     }`}>
       <Background3D isDark={isDark} />
+      <Navigation />
       <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
-      
-      {/* Navigation Menu */}
-      <nav className="fixed top-20 right-6 z-40 hidden lg:block">
-        <div className="backdrop-blur-md bg-white/10 dark:bg-black/10 rounded-2xl p-4 border border-white/20 dark:border-white/10">
-          <div className="flex flex-col space-y-4">
-            {[
-              { href: '#home', label: 'Home' },
-              { href: '#about', label: 'About' },
-              { href: '#projects', label: 'Projects' },
-              { href: '#contact', label: 'Contact' }
-            ].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hover:scale-105 transform"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.getElementById(item.href.substring(1));
-                  element?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
 
       {/* Scroll Progress Indicator */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-white/10 dark:bg-black/10 z-50">
+      <div className="fixed top-0 left-0 w-full h-1 bg-white/10 dark:bg-black/10 z-40">
         <div 
           className="h-full bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300"
           style={{ width: `${(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%` }}
         />
       </div>
       
-      <div className="relative z-10">
+      <div className="relative z-10 pt-16">
         <section id="home">
           <Hero />
         </section>
