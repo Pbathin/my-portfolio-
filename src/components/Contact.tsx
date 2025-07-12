@@ -45,8 +45,8 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Technologies I Work With */}
           <div className="space-y-8">
-            <div className="bg-white/80 dark:bg-gray-800 rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-none transition-all duration-500">
-              <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white font-outfit">
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold text-center text-gray-800 dark:text-white font-outfit">
                 Technologies I Work With
               </h3>
               <IconCloudDemo />
@@ -111,8 +111,12 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            
-            {/* Contact Form */}
+          </div>
+        </div>
+        
+        {/* Contact Form - Full Width Section Below */}
+        <div className="mt-16 flex justify-center">
+          <div className="w-full max-w-4xl">
             <div className="bg-white/80 dark:bg-gray-800 rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-none hover:scale-[1.02] transition-all duration-500">
               <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white font-outfit">
                 Send Me a Message
