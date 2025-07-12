@@ -10,6 +10,7 @@ import Contact from '@/components/Contact';
 const Index = () => {
   const [isDark, setIsDark] = useState(true);
   const [scrollY, setScrollY] = useState(0);
+  const [visibleSection, setVisibleSection] = useState('home');
 
   useEffect(() => {
     if (isDark) {
@@ -20,7 +21,28 @@ const Index = () => {
   }, [isDark]);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      
+      // Determine which section is currently visible
+      const sections = ['home', 'about', 'projects', 'contact'];
+      const windowHeight = window.innerHeight;
+      const scrollPosition = window.scrollY + windowHeight / 2;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setVisibleSection(section);
+            break;
+          }
+        }
+      }
+    };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -55,21 +77,21 @@ const Index = () => {
       </div>
       
       <div className="relative z-10 pt-16">
-        <section id="home" className="animate-fadeInUp">
+        <section id="home" className={`transition-all duration-700 ${visibleSection === 'home' ? 'animate-fadeInUp opacity-100' : 'opacity-90'}`}>
           <Hero />
         </section>
-        <section className="animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+        <section id="about" className={`transition-all duration-700 ${visibleSection === 'about' ? 'animate-fadeInUp opacity-100' : 'opacity-90'}`}>
           <About />
         </section>
-        <section className="animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+        <section id="projects" className={`transition-all duration-700 ${visibleSection === 'projects' ? 'animate-fadeInUp opacity-100' : 'opacity-90'}`}>
           <Projects />
         </section>
-        <section className="animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
+        <section id="contact" className={`transition-all duration-700 ${visibleSection === 'contact' ? 'animate-fadeInUp opacity-100' : 'opacity-90'}`}>
           <Contact />
         </section>
       </div>
       
-      <footer className="relative z-10 py-12 text-center border-t border-white/10 bg-white/5 dark:bg-black/5 backdrop-blur-md animate-fadeInUp" style={{ animationDelay: '0.8s' }}>
+      <footer className="relative z-10 py-12 text-center border-t border-white/10 bg-white/5 dark:bg-black/5 animate-fadeInUp">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p className="text-gray-500 dark:text-gray-400 font-outfit">
