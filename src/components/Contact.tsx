@@ -31,13 +31,13 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 font-outfit">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent font-outfit">
             Let's Work Together
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-outfit">
             I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
           </p>
         </div>
@@ -45,8 +45,8 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Technologies I Work With */}
           <div className="space-y-8">
-            <div className="backdrop-blur-md bg-white/10 dark:bg-gray-800 rounded-3xl p-8 border border-white/20 dark:border-gray-700 hover:bg-white/15 dark:hover:bg-gray-700 transition-all duration-500">
-              <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white">
+            <div className="bg-white/80 dark:bg-gray-800 rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-none transition-all duration-500">
+              <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white font-outfit">
                 Technologies I Work With
               </h3>
               <IconCloudDemo />
@@ -57,10 +57,10 @@ const Contact = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <div>
-                <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">
+                <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white font-outfit">
                   Get In Touch
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed font-outfit">
                   Whether you're looking to collaborate on a project, need a skilled developer for your team, 
                   or just want to connect with a fellow tech enthusiast, I'd love to hear from you.
                 </p>
@@ -73,8 +73,8 @@ const Contact = () => {
                     <Mail className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-800 dark:text-white">Email</p>
-                    <p className="text-gray-600 dark:text-gray-300">athinpb@gmail.com</p>
+                    <p className="font-medium text-gray-800 dark:text-white font-outfit">Email</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-outfit">athinpb@gmail.com</p>
                   </div>
                 </div>
                 
@@ -84,8 +84,8 @@ const Contact = () => {
                     <Linkedin className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-800 dark:text-white">LinkedIn</p>
-                    <p className="text-gray-600 dark:text-gray-300">Connect with me</p>
+                    <p className="font-medium text-gray-800 dark:text-white font-outfit">LinkedIn</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-outfit">Connect with me</p>
                   </div>
                 </div>
                 
@@ -95,8 +95,8 @@ const Contact = () => {
                     <Github className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-800 dark:text-white">GitHub</p>
-                    <p className="text-gray-600 dark:text-gray-300">Check out my code</p>
+                    <p className="font-medium text-gray-800 dark:text-white font-outfit">GitHub</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-outfit">Check out my code</p>
                   </div>
                 </div>
 
@@ -105,16 +105,16 @@ const Contact = () => {
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-800 dark:text-white">Location</p>
-                    <p className="text-gray-600 dark:text-gray-300">Kerala, India</p>
+                    <p className="font-medium text-gray-800 dark:text-white font-outfit">Location</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-outfit">Kerala, India</p>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Contact Form */}
-            <div className="backdrop-blur-md bg-white/10 dark:bg-gray-800 rounded-3xl p-8 border border-white/20 dark:border-gray-700 hover:bg-white/15 dark:hover:bg-gray-700 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
-              <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white">
+            <div className="bg-white/80 dark:bg-gray-800 rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-none hover:scale-[1.02] transition-all duration-500">
+              <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white font-outfit">
                 Send Me a Message
               </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -125,7 +125,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="bg-white/5 dark:bg-gray-700 border-white/20 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 hover:bg-white/10 dark:hover:bg-gray-600 focus:bg-white/10 dark:focus:bg-gray-600 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
+                    className="bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
                   />
                   <Input 
                     name="email"
@@ -134,7 +134,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="bg-white/5 dark:bg-gray-700 border-white/20 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 hover:bg-white/10 dark:hover:bg-gray-600 focus:bg-white/10 dark:focus:bg-gray-600 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
+                    className="bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
                   />
                 </div>
                 <Input 
@@ -143,7 +143,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="bg-white/5 dark:bg-gray-700 border-white/20 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 hover:bg-white/10 dark:hover:bg-gray-600 focus:bg-white/10 dark:focus:bg-gray-600 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
+                  className="bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
                 />
                 <Textarea 
                   name="message"
@@ -152,11 +152,11 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="bg-white/5 dark:bg-gray-700 border-white/20 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 resize-none transition-all duration-300 hover:bg-white/10 dark:hover:bg-gray-600 focus:bg-white/10 dark:focus:bg-gray-600 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
+                  className="bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 resize-none transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
                 />
                 <Button 
                   type="submit" 
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 dark:from-purple-500 dark:to-pink-500 dark:hover:from-purple-600 dark:hover:to-pink-600 text-white py-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 dark:from-purple-500 dark:to-pink-500 dark:hover:from-purple-600 dark:hover:to-pink-600 text-white py-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl font-outfit"
                 >
                   <Send className="h-5 w-5 mr-2" />
                   Send Message

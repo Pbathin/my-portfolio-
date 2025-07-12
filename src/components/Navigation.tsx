@@ -1,9 +1,14 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Download, Home, User, Briefcase, Mail } from 'lucide-react';
+import { Menu, X, Download, Home, User, Briefcase, Mail, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const Navigation = () => {
+interface NavigationProps {
+  isDark: boolean;
+  onThemeToggle: () => void;
+}
+
+const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -39,7 +44,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-4 left-4 right-20 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 ${
       scrolled 
         ? 'backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 rounded-2xl' 
         : 'bg-transparent'
@@ -50,7 +55,7 @@ const Navigation = () => {
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection('home')}
-              className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"
+              className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 font-outfit"
             >
               Athin PB
             </button>
@@ -63,16 +68,31 @@ const Navigation = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href.substring(1))}
-                  className="flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300 backdrop-blur-sm"
+                  className="flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300 backdrop-blur-sm font-outfit"
                 >
-                  <item.icon className="h-4 w-4" />
+                  <item.icon className="h-4 w-4 font-outfit" />
                   <span>{item.label}</span>
                 </button>
               ))}
+              
+              {/* Theme Toggle */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={onThemeToggle}
+                className="rounded-full w-10 h-10 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 ml-2"
+              >
+                {isDark ? (
+                  <Sun className="h-4 w-4 text-yellow-400 transition-transform duration-300 rotate-0 hover:rotate-12" />
+                ) : (
+                  <Moon className="h-4 w-4 text-blue-600 transition-transform duration-300 rotate-0 hover:-rotate-12" />
+                )}
+              </Button>
+              
               <Button
                 onClick={downloadResume}
                 size="sm"
-                className="ml-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white backdrop-blur-md border border-white/20 transition-all duration-300 hover:scale-105"
+                className="ml-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white backdrop-blur-md border border-white/20 transition-all duration-300 hover:scale-105 font-outfit"
               >
                 <Download className="h-4 w-4 mr-2" />
                 Resume
@@ -81,7 +101,21 @@ const Navigation = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Theme Toggle */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onThemeToggle}
+              className="rounded-full w-10 h-10 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300"
+            >
+              {isDark ? (
+                <Sun className="h-4 w-4 text-yellow-400 transition-transform duration-300 rotate-0 hover:rotate-12" />
+              ) : (
+                <Moon className="h-4 w-4 text-blue-600 transition-transform duration-300 rotate-0 hover:-rotate-12" />
+              )}
+            </Button>
+            
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300 backdrop-blur-sm"
@@ -99,7 +133,7 @@ const Navigation = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href.substring(1))}
-                  className="flex items-center space-x-2 w-full px-3 py-2 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300"
+                  className="flex items-center space-x-2 w-full px-3 py-2 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300 font-outfit"
                 >
                   <item.icon className="h-5 w-5" />
                   <span>{item.label}</span>
@@ -108,7 +142,7 @@ const Navigation = () => {
               <Button
                 onClick={downloadResume}
                 size="sm"
-                className="w-full mt-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300"
+                className="w-full mt-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300 font-outfit"
               >
                 <Download className="h-4 w-4 mr-2" />
                 Download Resume

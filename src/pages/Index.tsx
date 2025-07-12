@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from 'react';
-import ThemeToggle from '@/components/ThemeToggle';
 import Background3D from '@/components/Background3D';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
@@ -31,14 +30,13 @@ const Index = () => {
   };
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${
+    <div className={`min-h-screen transition-all duration-500 font-outfit ${
       isDark 
         ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 text-white' 
         : 'bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 text-gray-900'
     }`}>
       <Background3D isDark={isDark} />
-      <Navigation />
-      <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
+      <Navigation isDark={isDark} onThemeToggle={toggleTheme} />
 
       {/* Scroll Progress Indicator */}
       <div className="fixed top-0 left-0 w-full h-1 bg-white/10 dark:bg-black/10 z-40">
@@ -60,7 +58,7 @@ const Index = () => {
       <footer className="relative z-10 py-12 text-center border-t border-white/10 bg-white/5 dark:bg-black/5 backdrop-blur-md">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-gray-500 dark:text-gray-400 font-outfit">
               © 2024 Athin PB. Built with React, Three.js & ❤️
             </p>
             <div className="flex space-x-6">
@@ -68,7 +66,7 @@ const Index = () => {
                 href="https://github.com/Pbathin" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hover:scale-110 transform"
+                className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hover:scale-110 transform font-outfit"
               >
                 GitHub
               </a>
@@ -76,13 +74,13 @@ const Index = () => {
                 href="https://linkedin.com/in/athin-pb" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hover:scale-110 transform"
+                className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hover:scale-110 transform font-outfit"
               >
                 LinkedIn
               </a>
               <a 
                 href="mailto:athinpb@gmail.com"
-                className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hover:scale-110 transform"
+                className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hover:scale-110 transform font-outfit"
               >
                 Email
               </a>
