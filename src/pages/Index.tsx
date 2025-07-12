@@ -25,6 +25,14 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Add smooth scroll behavior
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
   const toggleTheme = () => {
     setIsDark(!isDark);
   };
@@ -47,15 +55,21 @@ const Index = () => {
       </div>
       
       <div className="relative z-10 pt-16">
-        <section id="home">
+        <section id="home" className="animate-fadeInUp">
           <Hero />
         </section>
-        <About />
-        <Projects />
-        <Contact />
+        <section className="animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+          <About />
+        </section>
+        <section className="animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+          <Projects />
+        </section>
+        <section className="animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
+          <Contact />
+        </section>
       </div>
       
-      <footer className="relative z-10 py-12 text-center border-t border-white/10 bg-white/5 dark:bg-black/5 backdrop-blur-md">
+      <footer className="relative z-10 py-12 text-center border-t border-white/10 bg-white/5 dark:bg-black/5 backdrop-blur-md animate-fadeInUp" style={{ animationDelay: '0.8s' }}>
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p className="text-gray-500 dark:text-gray-400 font-outfit">

@@ -31,7 +31,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 font-outfit">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 font-outfit animate-fadeInUp">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent font-outfit">
@@ -45,7 +45,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Technologies I Work With */}
           <div className="space-y-8">
-            <div className="space-y-6">
+            <div className="space-y-6 backdrop-blur-md bg-white/10 dark:bg-gray-900/50 rounded-3xl p-8 border border-white/20 dark:border-gray-700/50">
               <h3 className="text-2xl font-semibold text-center text-gray-800 dark:text-white font-outfit">
                 Technologies I Work With
               </h3>
@@ -55,7 +55,7 @@ const Contact = () => {
           
           {/* Right Column - Get In Touch */}
           <div className="space-y-8">
-            <div className="space-y-6">
+            <div className="space-y-6 backdrop-blur-md bg-white/10 dark:bg-gray-900/50 rounded-3xl p-8 border border-white/20 dark:border-gray-700/50">
               <div>
                 <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white font-outfit">
                   Get In Touch
@@ -114,10 +114,10 @@ const Contact = () => {
           </div>
         </div>
         
-        {/* Contact Form - Full Width Section Below */}
+        {/* Contact Form - 70% Width Section Below */}
         <div className="mt-16 flex justify-center">
-          <div className="w-full max-w-4xl">
-            <div className="bg-white/80 dark:bg-gray-800 rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg dark:shadow-none hover:scale-[1.02] transition-all duration-500">
+          <div className="w-full max-w-4xl" style={{ width: '70%' }}>
+            <div className="backdrop-blur-md bg-white/10 dark:bg-gray-900/50 rounded-3xl p-8 border border-white/20 dark:border-gray-700/50 hover:scale-[1.02] transition-all duration-500">
               <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white font-outfit">
                 Send Me a Message
               </h3>
@@ -129,7 +129,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
+                    className="bg-white/80 dark:bg-gray-800/80 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
                   />
                   <Input 
                     name="email"
@@ -138,7 +138,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
+                    className="bg-white/80 dark:bg-gray-800/80 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
                   />
                 </div>
                 <Input 
@@ -147,7 +147,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
+                  className="bg-white/80 dark:bg-gray-800/80 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
                 />
                 <Textarea 
                   name="message"
@@ -156,7 +156,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 resize-none transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
+                  className="bg-white/80 dark:bg-gray-800/80 border-gray-300 dark:border-gray-600 rounded-xl focus:border-purple-400 dark:focus:border-purple-500 resize-none transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
                 />
                 <Button 
                   type="submit" 

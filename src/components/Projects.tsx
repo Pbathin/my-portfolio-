@@ -41,82 +41,89 @@ const projects = [
   }
 ];
 
+// Duplicate projects for seamless loop
+const duplicatedProjects = [...projects, ...projects];
+
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent font-outfit">
             Featured Projects
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-outfit">
             Here are some of my recent projects that showcase my skills in full-stack development, cloud technologies, and modern web frameworks.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <div 
-              key={index}
-              className="backdrop-blur-md bg-white/10 dark:bg-black/10 rounded-3xl overflow-hidden border border-white/20 dark:border-white/10 hover:scale-[1.02] transition-all duration-500 group hover:bg-white/15 dark:hover:bg-black/15 hover:shadow-2xl"
-              style={{
-                animationDelay: `${index * 100}ms`,
-                animation: 'fadeInUp 0.6s ease-out forwards'
-              }}
-            >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                  <project.icon className="h-8 w-8 text-white drop-shadow-lg" />
+        {/* Marquee Container */}
+        <div className="relative overflow-hidden">
+          <div className="flex animate-marquee hover:pause-marquee">
+            {duplicatedProjects.map((project, index) => (
+              <div 
+                key={index}
+                className="flex-shrink-0 w-80 mx-4 backdrop-blur-md bg-white/10 dark:bg-black/10 rounded-3xl overflow-hidden border border-white/20 dark:border-white/10 hover:scale-[1.02] transition-all duration-500 group hover:bg-white/15 dark:hover:bg-black/15 hover:shadow-2xl"
+              >
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                    <project.icon className="h-8 w-8 text-white drop-shadow-lg" />
+                  </div>
                 </div>
-              </div>
-              
-              <div className="p-8">
-                <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 leading-relaxed">
-                  {project.description}
-                </p>
                 
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {project.tech.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex}
-                      className="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 hover:scale-105 transition-transform duration-200"
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold mb-3 text-gray-800 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 font-outfit">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed font-outfit line-clamp-3">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {project.tech.slice(0, 3).map((tech, techIndex) => (
+                      <span 
+                        key={techIndex}
+                        className="px-2 py-1 text-xs rounded-full bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 font-outfit"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.tech.length > 3 && (
+                      <span className="px-2 py-1 text-xs rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-outfit">
+                        +{project.tech.length - 3}
+                      </span>
+                    )}
+                  </div>
+                  
+                  <div className="flex gap-2">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1 rounded-full bg-white/5 border-white/20 hover:bg-white/10 hover:scale-105 transition-all duration-300 text-xs font-outfit"
+                      onClick={() => window.open(project.github, '_blank')}
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex gap-4">
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="flex-1 rounded-full bg-white/5 border-white/20 hover:bg-white/10 hover:scale-105 transition-all duration-300"
-                    onClick={() => window.open(project.github, '_blank')}
-                  >
-                    <Github className="h-4 w-4 mr-2" />
-                    Code
-                  </Button>
-                  <Button 
-                    size="sm" 
-                    className="flex-1 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 hover:scale-105 transition-all duration-300 hover:shadow-lg"
-                    onClick={() => window.open(project.demo, '_blank')}
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Live Demo
-                  </Button>
+                      <Github className="h-3 w-3 mr-1" />
+                      Code
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      className="flex-1 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 hover:scale-105 transition-all duration-300 hover:shadow-lg text-xs font-outfit"
+                      onClick={() => window.open(project.demo, '_blank')}
+                    >
+                      <ExternalLink className="h-3 w-3 mr-1" />
+                      Demo
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

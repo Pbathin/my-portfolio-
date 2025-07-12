@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -154,6 +155,14 @@ export default {
 					'50%': {
 						boxShadow: '0 0 40px rgba(139, 92, 246, 0.6)'
 					}
+				},
+				'marquee': {
+					'0%': {
+						transform: 'translateX(0%)'
+					},
+					'100%': {
+						transform: 'translateX(-50%)'
+					}
 				}
 			},
 			animation: {
@@ -165,7 +174,8 @@ export default {
 				'slideInRight': 'slideInRight 0.6s ease-out',
 				'scaleIn': 'scaleIn 0.5s ease-out',
 				'float': 'float 6s ease-in-out infinite',
-				'glow': 'glow 2s ease-in-out infinite alternate'
+				'glow': 'glow 2s ease-in-out infinite alternate',
+				'marquee': 'marquee 30s linear infinite'
 			}
 		}
 	},
