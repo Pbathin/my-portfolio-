@@ -51,7 +51,7 @@ const Contact = () => {
       });
     } catch (error) {
       console.error('EmailJS Error:', error);
-      
+
       // Fallback to mailto
       const mailtoLink = `mailto:athin04pb@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
@@ -85,7 +85,7 @@ const Contact = () => {
             I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
           </p>
         </div>
-        
+
         <div className="grid lg:grid-cols-2 gap-12 items-stretch">
           {/* Left Column - Technologies I Work With */}
           <div className="space-y-8">
@@ -100,7 +100,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Right Column - Get In Touch */}
           <div className="space-y-8">
             <div className="bg-white/5 dark:bg-black/5 rounded-2xl border border-white/10 hover:bg-white/10 p-8 h-full dark:hover:bg-black/10 transition-all duration-300 hover:scale-[1.02]">
@@ -109,14 +109,14 @@ const Contact = () => {
                   Get In Touch
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed font-outfit mb-3">
-                  Whether you're looking to collaborate on a project, need a skilled developer for your team, 
+                  Whether you're looking to collaborate on a project, need a skilled developer for your team,
                   or just want to connect with a fellow tech enthusiast, I'd love to hear from you.
                 </p>
               </div>
-              
+
               <div className="space-y-8">
                 <div className="flex items-center space-x-4 group cursor-pointer hover:scale-105 transition-transform duration-300 pt-4"
-                     onClick={() => window.open('mailto:athin04pb@gmail.com', '_blank')}>
+                  onClick={() => window.open('mailto:athin04pb@gmail.com', '_blank')}>
                   <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-500 dark:to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Mail className="h-6 w-6 text-white" />
                   </div>
@@ -125,9 +125,9 @@ const Contact = () => {
                     <p className="text-gray-600 dark:text-gray-300 font-outfit">athin04pb@gmail.com</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-4 group cursor-pointer hover:scale-105 transition-transform duration-300"
-                     onClick={() => window.open('https://linkedin.com/in/athin-pb', '_blank')}>
+                  onClick={() => window.open('https://www.linkedin.com/in/athinpb', '_blank')}>
                   <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-500 dark:to-cyan-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Linkedin className="h-6 w-6 text-white" />
                   </div>
@@ -136,9 +136,9 @@ const Contact = () => {
                     <p className="text-gray-600 dark:text-gray-300 font-outfit">Connect with me</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-4 group cursor-pointer hover:scale-105 transition-transform duration-300"
-                     onClick={() => window.open('https://github.com/Pbathin', '_blank')}>
+                  onClick={() => window.open('https://github.com/Pbathin', '_blank')}>
                   <div className="w-12 h-12 rounded-full bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-600 dark:to-gray-800 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Github className="h-6 w-6 text-white" />
                   </div>
@@ -161,55 +161,55 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Contact Form - 70% Width Section Below */}
         <div className="mt-16 flex justify-center">
-          <div className="w-full max-w-4xl" style={{ width: '70%' }}>
+          <div className="w-full max-w-4xl" style={{ width: '90%' }}>
             <div className="bg-white/5 dark:bg-black/5 rounded-2xl border border-white/10 hover:bg-white/10 p-8 h-full dark:hover:bg-black/10    transition-all duration-500 bg-transparen">
               <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white font-outfit">
                 Send Me a Message
               </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <Input 
+                  <Input
                     name="name"
-                    placeholder="Your Name" 
+                    placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
                     required
                     className="bg-white/5 dark:bg-black/5 border border-white/10 hover:bg-white/10 p-3 h-full dark:hover:bg-black/10  rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
                   />
-                  <Input 
+                  <Input
                     name="email"
-                    type="email" 
-                    placeholder="Your Email" 
+                    type="email"
+                    placeholder="Your Email"
                     value={formData.email}
                     onChange={handleChange}
                     required
                     className="bg-white/5 dark:bg-black/5 border border-white/10 hover:bg-white/10 p-3 h-full dark:hover:bg-black/10  rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
                   />
                 </div>
-                <Input 
+                <Input
                   name="subject"
-                  placeholder="Subject" 
+                  placeholder="Subject"
                   value={formData.subject}
                   onChange={handleChange}
                   required
                   className="bg-white/5 dark:bg-black/5 border border-white/10 hover:bg-white/10 p-3 h-full dark:hover:bg-black/10  rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit"
                 />
-                <Textarea 
+                <Textarea
                   name="message"
-                  placeholder="Your Message" 
+                  placeholder="Your Message"
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
                   required
                   className="bg-white/5 dark:bg-black/5 border border-white/10 hover:bg-white/10 p-3 h-full dark:hover:bg-black/10  rounded-xl focus:border-purple-400 dark:focus:border-purple-500 transition-all duration-300 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 font-outfit resize-none"
                 />
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   disabled={isSubmitting}
-                  className="w-1/2 ml-[25%] bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 dark:from-purple-500 dark:to-pink-500 dark:hover:from-purple-600 dark:hover:to-pink-600 text-white py-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl font-outfit"
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 dark:from-purple-500 dark:to-pink-500 dark:hover:from-purple-600 dark:hover:to-pink-600 text-white py-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl font-outfit"
                 >
                   <Send className="h-5 w-5 mr-2" />
                   {isSubmitting ? 'Sending...' : 'Send Message'}

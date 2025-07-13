@@ -23,18 +23,18 @@ const Index = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
-      
+
       // Determine which section is currently visible
       const sections = ['home', 'about', 'experience', 'projects', 'contact'];
       const windowHeight = window.innerHeight;
       const scrollPosition = window.scrollY + windowHeight / 2;
-      
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetBottom = offsetTop + element.offsetHeight;
-          
+
           if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
             setVisibleSection(section);
             break;
@@ -42,7 +42,7 @@ const Index = () => {
         }
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -59,89 +59,85 @@ const Index = () => {
     setIsDark(!isDark);
   };
 
+
   return (
-    <div className={`min-h-screen transition-all duration-500 font-outfit ${
-      isDark 
-        ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 text-white' 
-        : 'bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 text-gray-900'
-    }`}>
-      <Background3D isDark={isDark} />
+    <div className={`min-h-screen transition-all duration-500 font-outfit ${isDark
+      ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 text-white'
+      : 'bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 text-gray-900'
+      }`}>
+      {/* <Background3D isDark={isDark} /> */}
       <Navigation isDark={isDark} onThemeToggle={toggleTheme} />
 
       {/* Scroll Progress Indicator */}
       <div className="fixed top-0 left-0 w-full h-1 bg-white/10 dark:bg-black/10 z-40">
-        <div 
+        <div
           className="h-full bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300"
           style={{ width: `${(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%` }}
         />
       </div>
-      
-      <div className="relative z-10 pt-16">
-        <section id="home" className={`transition-all duration-1000 ease-out transform ${
-          visibleSection === 'home' 
-            ? 'opacity-100 translate-y-0 scale-100' 
-            : 'opacity-60 translate-y-8 scale-95'
-        }`}>
+
+      <div className="relative z-10 pt-16 ">
+        <section id="home" className={`transition-all duration-1000 ease-out transform ${visibleSection === 'home'
+          ? 'opacity-100 translate-y-0 scale-100'
+          : 'opacity-60 translate-y-8 scale-95'
+          }`}>
           <Hero />
         </section>
-        
-        <section id="about" className={`transition-all duration-1000 ease-out transform ${
-          visibleSection === 'about' 
-            ? 'opacity-100 translate-y-0 scale-100' 
-            : 'opacity-60 translate-y-8 scale-95'
-        }`}>
+
+        <section id="about" className={`transition-all duration-1000 ease-out transform ${visibleSection === 'about'
+          ? 'opacity-100 translate-y-0 scale-100'
+          : 'opacity-60 translate-y-8 scale-95'
+          }`}>
           <About />
         </section>
-        
-        <section id="experience" className={`transition-all duration-1000 ease-out transform ${
-          visibleSection === 'experience' 
-            ? 'opacity-100 translate-y-0 scale-100' 
-            : 'opacity-60 translate-y-8 scale-95'
-        }`}>
+
+        <section id="experience" className={`transition-all duration-1000 ease-out transform ${visibleSection === 'experience'
+          ? 'opacity-100 translate-y-0 scale-100'
+          : 'opacity-60 translate-y-8 scale-95'
+          }`}>
           <Experience />
         </section>
-        
-        <section id="projects" className={`transition-all duration-1000 ease-out transform ${
-          visibleSection === 'projects' 
-            ? 'opacity-100 translate-y-0 scale-100' 
-            : 'opacity-60 translate-y-8 scale-95'
-        }`}>
+
+        <section id="projects" className={`transition-all duration-1000 ease-out transform ${visibleSection === 'projects'
+          ? 'opacity-100 translate-y-0 scale-100'
+          : 'opacity-60 translate-y-8 scale-95'
+          }`}>
           <Projects />
         </section>
-        
-        <section id="contact" className={`transition-all duration-1000 ease-out transform ${
-          visibleSection === 'contact' 
-            ? 'opacity-100 translate-y-0 scale-100' 
-            : 'opacity-60 translate-y-8 scale-95'
-        }`}>
+
+        <section id="contact" className={`transition-all duration-1000 ease-out transform ${visibleSection === 'contact'
+          ? 'opacity-100 translate-y-0 scale-100'
+          : 'opacity-60 translate-y-8 scale-95'
+          }`}>
           <Contact />
         </section>
+
       </div>
-      
+
       <footer className="relative z-10 py-12 text-center border-t border-white/10 bg-white/5 dark:bg-black/5 animate-fadeInUp">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p className="text-gray-500 dark:text-gray-400 font-outfit">
-              © 2024 Athin PB. Built with React, Three.js & ❤️
+              © 2025 Athin PB. Built with React, Three.js & ❤️
             </p>
             <div className="flex space-x-6">
-              <a 
-                href="https://github.com/Pbathin" 
-                target="_blank" 
+              <a
+                href="https://github.com/Pbathin"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hover:scale-110 transform font-outfit"
               >
                 GitHub
               </a>
-              <a 
-                href="https://linkedin.com/in/athin-pb" 
-                target="_blank" 
+              <a
+                href="https://linkedin.com/in/athin-pb"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hover:scale-110 transform font-outfit"
               >
                 LinkedIn
               </a>
-              <a 
+              <a
                 href="mailto:athinpb@gmail.com"
                 className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hover:scale-110 transform font-outfit"
               >

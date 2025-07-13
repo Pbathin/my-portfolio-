@@ -56,18 +56,18 @@ const Projects = () => {
             Here are some of my recent projects that showcase my skills in full-stack development, cloud technologies, and modern web frameworks.
           </p>
         </div>
-        
+
         {/* Marquee Container */}
         <div className="relative overflow-hidden">
           <div className="flex animate-marquee hover:pause-marquee">
             {duplicatedProjects.map((project, index) => (
-              <div 
+              <div
                 key={index}
                 className="flex-shrink-0 w-80 mx-4 backdrop-blur-md bg-white/10 dark:bg-black/10 rounded-3xl overflow-hidden border border-white/20 dark:border-white/10 hover:scale-[1.02] transition-all duration-500 group hover:bg-white/15 dark:hover:bg-black/15 hover:shadow-2xl"
               >
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
@@ -76,7 +76,7 @@ const Projects = () => {
                     <project.icon className="h-8 w-8 text-white drop-shadow-lg" />
                   </div>
                 </div>
-                
+
                 <div className="p-6">
                   <h3 className="text-lg font-semibold mb-3 text-gray-800 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300 font-outfit">
                     {project.title}
@@ -84,10 +84,10 @@ const Projects = () => {
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed font-outfit line-clamp-3">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-1 mb-4">
                     {project.tech.slice(0, 3).map((tech, techIndex) => (
-                      <span 
+                      <span
                         key={techIndex}
                         className="px-2 py-1 text-xs rounded-full bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 font-outfit"
                       >
@@ -100,19 +100,19 @@ const Projects = () => {
                       </span>
                     )}
                   </div>
-                  
+
                   <div className="flex gap-2">
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+                    <Button
+                      variant="outline"
+                      size="sm"
                       className="flex-1 rounded-full bg-white/5 border-white/20 hover:bg-white/10 hover:scale-105 transition-all duration-300 text-xs font-outfit"
                       onClick={() => window.open(project.github, '_blank')}
                     >
                       <Github className="h-3 w-3 mr-1" />
                       Code
                     </Button>
-                    <Button 
-                      size="sm" 
+                    <Button
+                      size="sm"
                       className="flex-1 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 hover:scale-105 transition-all duration-300 hover:shadow-lg text-xs font-outfit"
                       onClick={() => window.open(project.demo, '_blank')}
                     >
