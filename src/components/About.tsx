@@ -94,11 +94,11 @@ const About = () => {
                         {stack.category}
                       </h4>
                     </div>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 gap-2">
                       {stack.technologies.map((tech, techIndex) => (
                         <div key={techIndex} className="flex items-center space-x-2 p-2 rounded-lg bg-white/5 dark:bg-black/5 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200">
-                          <span className="text-sm">{tech.icon}</span>
-                          <span className="text-xs text-gray-600 dark:text-gray-300 font-medium">{tech.name}</span>
+                          <span className="text-sm flex-shrink-0">{tech.icon}</span>
+                          <span className="text-sm text-gray-600 dark:text-gray-300 font-medium truncate">{tech.name}</span>
                         </div>
                       ))}
                     </div>

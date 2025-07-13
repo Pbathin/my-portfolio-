@@ -77,16 +77,32 @@ const Index = () => {
       </div>
       
       <div className="relative z-10 pt-16">
-        <section id="home" className={`transition-all duration-700 ${visibleSection === 'home' ? 'animate-fadeInUp opacity-100' : 'opacity-90'}`}>
+        <section id="home" className={`transition-all duration-1000 ease-in-out ${
+          visibleSection === 'home' 
+            ? 'opacity-100 transform translate-y-0' 
+            : 'opacity-80 transform translate-y-4'
+        }`}>
           <Hero />
         </section>
-        <section id="about" className={`transition-all duration-700 ${visibleSection === 'about' ? 'animate-fadeInUp opacity-100' : 'opacity-90'}`}>
+        <section id="about" className={`transition-all duration-1000 ease-in-out ${
+          visibleSection === 'about' 
+            ? 'opacity-100 transform translate-y-0' 
+            : 'opacity-80 transform translate-y-4'
+        }`}>
           <About />
         </section>
-        <section id="projects" className={`transition-all duration-700 ${visibleSection === 'projects' ? 'animate-fadeInUp opacity-100' : 'opacity-90'}`}>
+        <section id="projects" className={`transition-all duration-1000 ease-in-out ${
+          visibleSection === 'projects' 
+            ? 'opacity-100 transform translate-y-0' 
+            : 'opacity-80 transform translate-y-4'
+        }`}>
           <Projects />
         </section>
-        <section id="contact" className={`transition-all duration-700 ${visibleSection === 'contact' ? 'animate-fadeInUp opacity-100' : 'opacity-90'}`}>
+        <section id="contact" className={`transition-all duration-1000 ease-in-out ${
+          visibleSection === 'contact' 
+            ? 'opacity-100 transform translate-y-0' 
+            : 'opacity-80 transform translate-y-4'
+        }`}>
           <Contact />
         </section>
       </div>
