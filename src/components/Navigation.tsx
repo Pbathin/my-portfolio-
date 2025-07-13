@@ -44,12 +44,12 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
   };
 
   return (
-    <nav className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-4 left-[15%] right-[15%] z-50 transition-all duration-300 ${
       scrolled 
         ? 'backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 rounded-2xl' 
         : 'bg-transparent'
     }`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
