@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import Background3D from '@/components/Background3D';
 import Navigation from '@/components/Navigation';
@@ -6,6 +5,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
+import Experience from '@/components/Experience';
 
 const Index = () => {
   const [isDark, setIsDark] = useState(true);
@@ -25,7 +25,7 @@ const Index = () => {
       setScrollY(window.scrollY);
       
       // Determine which section is currently visible
-      const sections = ['home', 'about', 'projects', 'contact'];
+      const sections = ['home', 'about', 'experience', 'projects', 'contact'];
       const windowHeight = window.innerHeight;
       const scrollPosition = window.scrollY + windowHeight / 2;
       
@@ -91,6 +91,14 @@ const Index = () => {
             : 'opacity-60 translate-y-8 scale-95'
         }`}>
           <About />
+        </section>
+        
+        <section id="experience" className={`transition-all duration-1000 ease-out transform ${
+          visibleSection === 'experience' 
+            ? 'opacity-100 translate-y-0 scale-100' 
+            : 'opacity-60 translate-y-8 scale-95'
+        }`}>
+          <Experience />
         </section>
         
         <section id="projects" className={`transition-all duration-1000 ease-out transform ${

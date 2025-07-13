@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { IconCloudDemo } from '@/components/IconCloudDemo';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,14 +15,56 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Create mailto link with form data
-    const mailtoLink = `mailto:athinpb@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`;
-    window.open(mailtoLink);
+    setIsSubmitting(true);
+
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // You'll need to replace this with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // You'll need to replace this with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'athin04pb@gmail.com'
+        },
+        'YOUR_PUBLIC_KEY' // You'll need to replace this with your EmailJS public key
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      
+      // Fallback to mailto
+      const mailtoLink = `mailto:athin04pb@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )}`;
+      window.open(mailtoLink);
+
+      toast({
+        title: "Opening email client",
+        description: "Please send the email through your default email client.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -45,7 +89,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-stretch">
           {/* Left Column - Technologies I Work With */}
           <div className="space-y-8">
-            <div className="space-y-6 bg-gray-50/80 dark:bg-gray-900/50 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/30 shadow-lg h-full flex flex-col justify-between">
+            <div className="space-y-6 bg-white/80 dark:bg-gray-800/50 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/30 shadow-lg h-full flex flex-col justify-between">
               <div>
                 <h3 className="text-2xl font-semibold text-center text-gray-800 dark:text-white font-outfit mb-6">
                   Technologies I Work With
@@ -59,7 +103,7 @@ const Contact = () => {
           
           {/* Right Column - Get In Touch */}
           <div className="space-y-8">
-            <div className="space-y-6 bg-gray-50/80 dark:bg-gray-900/50 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/30 shadow-lg h-full flex flex-col justify-between">
+            <div className="space-y-6 bg-white/80 dark:bg-gray-800/50 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/30 shadow-lg h-full flex flex-col justify-between">
               <div>
                 <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white font-outfit">
                   Get In Touch
@@ -72,13 +116,13 @@ const Contact = () => {
               
               <div className="space-y-4">
                 <div className="flex items-center space-x-4 group cursor-pointer hover:scale-105 transition-transform duration-300"
-                     onClick={() => window.open('mailto:athinpb@gmail.com', '_blank')}>
+                     onClick={() => window.open('mailto:athin04pb@gmail.com', '_blank')}>
                   <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-500 dark:to-pink-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Mail className="h-6 w-6 text-white" />
                   </div>
                   <div>
                     <p className="font-medium text-gray-800 dark:text-white font-outfit">Email</p>
-                    <p className="text-gray-600 dark:text-gray-300 font-outfit">athinpb@gmail.com</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-outfit">athin04pb@gmail.com</p>
                   </div>
                 </div>
                 
@@ -121,7 +165,7 @@ const Contact = () => {
         {/* Contact Form - 70% Width Section Below */}
         <div className="mt-16 flex justify-center">
           <div className="w-full max-w-4xl" style={{ width: '70%' }}>
-            <div className="bg-gray-50/80 dark:bg-gray-900/50 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/30 shadow-lg hover:scale-[1.02] transition-all duration-500">
+            <div className="bg-white/80 dark:bg-gray-800/50 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/30 shadow-lg hover:scale-[1.02] transition-all duration-500">
               <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white font-outfit">
                 Send Me a Message
               </h3>
@@ -164,10 +208,11 @@ const Contact = () => {
                 />
                 <Button 
                   type="submit" 
+                  disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 dark:from-purple-500 dark:to-pink-500 dark:hover:from-purple-600 dark:hover:to-pink-600 text-white py-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl font-outfit"
                 >
                   <Send className="h-5 w-5 mr-2" />
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </div>

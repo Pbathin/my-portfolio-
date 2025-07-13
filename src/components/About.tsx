@@ -1,5 +1,5 @@
 
-import { Code, Database, Cloud, Smartphone, Globe, Server, Wrench, Palette } from 'lucide-react';
+import { Code, Database, Cloud, Wrench } from 'lucide-react';
 
 const About = () => {
   const techStacks = [
@@ -60,7 +60,7 @@ const About = () => {
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="backdrop-blur-md bg-white/10 dark:bg-black/10 rounded-3xl p-8 sm:p-12 border border-white/20 dark:border-white/10 hover:bg-white/15 dark:hover:bg-black/15 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
+        <div className="bg-white/10 dark:bg-black/10 rounded-3xl p-8 sm:p-12 border border-white/20 dark:border-white/10 hover:bg-white/15 dark:hover:bg-black/15 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
             About Me
           </h2>
@@ -87,10 +87,10 @@ const About = () => {
             <h3 className="text-2xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-8">
               Tech Stack
             </h3>
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {techStacks.map((stack, index) => (
-                  <div key={index} className="backdrop-blur-md bg-white/5 dark:bg-black/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-300 hover:scale-105 group">
+                  <div key={index} className="bg-white/5 dark:bg-black/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-300 hover:scale-105 group">
                     <div className="flex items-center mb-3">
                       <stack.icon className={`h-6 w-6 bg-gradient-to-r ${stack.color} bg-clip-text text-transparent mr-3 group-hover:rotate-12 transition-transform duration-300`} />
                       <h4 className={`text-lg font-semibold bg-gradient-to-r ${stack.color} bg-clip-text text-transparent`}>
@@ -108,24 +108,6 @@ const About = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-
-          {/* Education Section */}
-          <div className="border-t border-white/10 pt-12">
-            <h3 className="text-2xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-              Education
-            </h3>
-            <div className="backdrop-blur-md bg-white/5 dark:bg-black/5 rounded-2xl p-6 border border-white/10 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-300">
-              <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
-                Bachelor of Technology in Computer Science and Engineering
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300 mb-2">
-                Nehru College of Engineering and Research Centre
-              </p>
-              <p className="text-gray-500 dark:text-gray-400">
-                Specialized in software development, algorithms, and modern web technologies
-              </p>
             </div>
           </div>
         </div>
