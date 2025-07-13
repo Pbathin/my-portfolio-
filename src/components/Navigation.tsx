@@ -44,12 +44,8 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
   };
 
   return (
-    <nav className={`fixed top-4 left-[15%] right-[15%] z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 rounded-2xl' 
-        : 'bg-transparent'
-    }`}>
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className={` `}>
+      <div className="max-w-8xl mx-auto px-4 sm:px-1 lg:px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -62,8 +58,8 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden md:block fixed top-4 left-[30%] right-[15%] z-50 transition-all duration-300 ">
+            <div className="ml-10 flex items-baseline space-x-6">
               {navItems.map((item) => (
                 <button
                   key={item.href}
@@ -80,7 +76,7 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
                 variant="ghost"
                 size="sm"
                 onClick={onThemeToggle}
-                className="rounded-full w-10 h-10 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 ml-2"
+                className="rounded-full w-10 h-10 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 ml-2  "
               >
                 {isDark ? (
                   <Sun className="h-4 w-4 text-yellow-400 transition-transform duration-300 rotate-0 hover:rotate-12" />
@@ -101,13 +97,13 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="md:hidden  flex items-end space-x-2 fixed top-4 left-[75%] right-[10px] z-50 transition-all duration-300 ">
             {/* Mobile Theme Toggle */}
             <Button
               variant="ghost"
               size="sm"
               onClick={onThemeToggle}
-              className="rounded-full w-10 h-10 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300"
+              className="rounded-full w-8  h-8 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300"
             >
               {isDark ? (
                 <Sun className="h-4 w-4 text-yellow-400 transition-transform duration-300 rotate-0 hover:rotate-12" />
@@ -127,7 +123,7 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden fixed top-4 left-[10px] right-[10px] mt-[-8px] z-40 transition-all duration-300">
             <div className="px-2 pt-2 pb-3 space-y-1 backdrop-blur-md bg-white/10 dark:bg-black/10 rounded-lg border border-white/20 dark:border-white/10 mt-2">
               {navItems.map((item) => (
                 <button

@@ -66,7 +66,7 @@ const About = () => {
           </h2>
           
           {/* About Me Description - Single Column */}
-          <div className="mb-16">
+          <div className="mb-10">
             <div className="max-w-4xl mx-auto space-y-6">
               <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed text-center">
                 I'm a passionate Software Developer with a strong foundation in full-stack development and cloud technologies. 
@@ -81,9 +81,9 @@ const About = () => {
               </p>
             </div>
           </div>
-
-          {/* Tech Stack Section - Single Column */}
-          <div className="mb-12">
+        </div>
+        {/* Tech Stack Section - Single Column */}
+        <div className="mb-12 mt-10">
             <h3 className="text-2xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-8">
               Tech Stack
             </h3>
@@ -110,7 +110,6 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
       </div>
     </section>
   );
