@@ -26,7 +26,7 @@ const Contact = () => {
       // Send email using EmailJS
       await emailjs.send(
         'service_z9x3489', // Your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // You'll need to replace this with your EmailJS template ID
+        'template_ur2qbic', // Your EmailJS template ID
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -34,7 +34,7 @@ const Contact = () => {
           message: formData.message,
           to_email: 'athin04pb@gmail.com'
         },
-        'YOUR_PUBLIC_KEY' // You'll need to replace this with your EmailJS public key
+        'UifuvvBmuk1_pXQZ_' // Your EmailJS public key
       );
 
       toast({
