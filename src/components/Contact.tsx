@@ -31,7 +31,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 font-outfit animate-fadeInUp">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 font-outfit">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent font-outfit">
@@ -42,25 +42,29 @@ const Contact = () => {
           </p>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-stretch">
           {/* Left Column - Technologies I Work With */}
           <div className="space-y-8">
-            <div className="space-y-6 bg-white dark:bg-gray-800/50 rounded-3xl p-8 border border-gray-200 dark:border-gray-700/50 shadow-lg">
-              <h3 className="text-2xl font-semibold text-center text-gray-800 dark:text-white font-outfit">
-                Technologies I Work With
-              </h3>
-              <IconCloudDemo />
+            <div className="space-y-6 bg-gray-50/80 dark:bg-gray-900/50 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/30 shadow-lg h-full flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl font-semibold text-center text-gray-800 dark:text-white font-outfit mb-6">
+                  Technologies I Work With
+                </h3>
+                <div className="flex justify-center">
+                  <IconCloudDemo />
+                </div>
+              </div>
             </div>
           </div>
           
           {/* Right Column - Get In Touch */}
           <div className="space-y-8">
-            <div className="space-y-6 bg-white dark:bg-gray-800/50 rounded-3xl p-8 border border-gray-200 dark:border-gray-700/50 shadow-lg">
+            <div className="space-y-6 bg-gray-50/80 dark:bg-gray-900/50 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/30 shadow-lg h-full flex flex-col justify-between">
               <div>
                 <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white font-outfit">
                   Get In Touch
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed font-outfit">
+                <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed font-outfit mb-6">
                   Whether you're looking to collaborate on a project, need a skilled developer for your team, 
                   or just want to connect with a fellow tech enthusiast, I'd love to hear from you.
                 </p>
@@ -117,7 +121,7 @@ const Contact = () => {
         {/* Contact Form - 70% Width Section Below */}
         <div className="mt-16 flex justify-center">
           <div className="w-full max-w-4xl" style={{ width: '70%' }}>
-            <div className="bg-white dark:bg-gray-800/50 rounded-3xl p-8 border border-gray-200 dark:border-gray-700/50 shadow-lg hover:scale-[1.02] transition-all duration-500">
+            <div className="bg-gray-50/80 dark:bg-gray-900/50 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/30 shadow-lg hover:scale-[1.02] transition-all duration-500">
               <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white font-outfit">
                 Send Me a Message
               </h3>

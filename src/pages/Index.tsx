@@ -77,31 +77,34 @@ const Index = () => {
       </div>
       
       <div className="relative z-10 pt-16">
-        <section id="home" className={`transition-all duration-1000 ease-in-out ${
+        <section id="home" className={`transition-all duration-1000 ease-out transform ${
           visibleSection === 'home' 
-            ? 'opacity-100 transform translate-y-0' 
-            : 'opacity-80 transform translate-y-4'
+            ? 'opacity-100 translate-y-0 scale-100' 
+            : 'opacity-60 translate-y-8 scale-95'
         }`}>
           <Hero />
         </section>
-        <section id="about" className={`transition-all duration-1000 ease-in-out ${
+        
+        <section id="about" className={`transition-all duration-1000 ease-out transform ${
           visibleSection === 'about' 
-            ? 'opacity-100 transform translate-y-0' 
-            : 'opacity-80 transform translate-y-4'
+            ? 'opacity-100 translate-y-0 scale-100' 
+            : 'opacity-60 translate-y-8 scale-95'
         }`}>
           <About />
         </section>
-        <section id="projects" className={`transition-all duration-1000 ease-in-out ${
+        
+        <section id="projects" className={`transition-all duration-1000 ease-out transform ${
           visibleSection === 'projects' 
-            ? 'opacity-100 transform translate-y-0' 
-            : 'opacity-80 transform translate-y-4'
+            ? 'opacity-100 translate-y-0 scale-100' 
+            : 'opacity-60 translate-y-8 scale-95'
         }`}>
           <Projects />
         </section>
-        <section id="contact" className={`transition-all duration-1000 ease-in-out ${
+        
+        <section id="contact" className={`transition-all duration-1000 ease-out transform ${
           visibleSection === 'contact' 
-            ? 'opacity-100 transform translate-y-0' 
-            : 'opacity-80 transform translate-y-4'
+            ? 'opacity-100 translate-y-0 scale-100' 
+            : 'opacity-60 translate-y-8 scale-95'
         }`}>
           <Contact />
         </section>
