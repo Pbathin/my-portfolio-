@@ -29,7 +29,13 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (element) {
+      const offsetTop = element.offsetTop - 80; // Add 80px offset for fixed navigation
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
     setIsOpen(false);
   };
 

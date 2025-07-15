@@ -107,7 +107,7 @@ const About = () => {
         </div>
         
         {/* Tech Stack Section with Animation */}
-        <div id="tech-stack" className={`mb-12 mt-10 transition-all duration-1000 ease-out transform ${visibleSection === 'tech-stack'
+        <div id="tech-stack" className={`mb-12 mt-16 transition-all duration-1000 ease-out transform ${visibleSection === 'tech-stack'
           ? 'opacity-100 translate-y-0 scale-100'
           : 'opacity-60 translate-y-8 scale-95'
         }`}>
@@ -129,7 +129,7 @@ const About = () => {
                     {stack.technologies.map((tech, techIndex) => (
                       <div key={techIndex} className="flex items-center space-x-2 p-2 rounded-lg bg-white/5 dark:bg-black/5 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200">
                         <span className="text-sm flex-shrink-0">{tech.icon}</span>
-                        <span className="text-sm text-gray-600 dark:text-gray-300 font-medium truncate">{tech.name}</span>
+                        <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium truncate">{tech.name}</span>
                       </div>
                     ))}
                   </div>
