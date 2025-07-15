@@ -138,8 +138,8 @@ const Projects = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-12 bg-white/10 border-white/20 hover:bg-white/20 text-white" />
-          <CarouselNext className="hidden md:flex -right-12 bg-white/10 border-white/20 hover:bg-white/20 text-white" />
+          <CarouselPrevious className="hidden md:flex -left-12 bg-white/80 dark:bg-black/80 border-gray-300 dark:border-white/20 hover:bg-white dark:hover:bg-black/90 text-gray-700 dark:text-white backdrop-blur-sm" />
+          <CarouselNext className="hidden md:flex -right-12 bg-white/80 dark:bg-black/80 border-gray-300 dark:border-white/20 hover:bg-white dark:hover:bg-black/90 text-gray-700 dark:text-white backdrop-blur-sm" />
         </Carousel>
       </div>
     </section>
