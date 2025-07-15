@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, Download, Home, User, Briefcase, Mail, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -30,7 +29,7 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 40; // Add 80px offset for fixed navigation
+      const offsetTop = element.offsetTop - 20; // Reduced offset for better positioning
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
