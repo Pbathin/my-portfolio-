@@ -1,7 +1,30 @@
 
 import { Code, Database, Cloud, Wrench } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const About = () => {
+  const [visibleSection, setVisibleSection] = useState('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const techStackElement = document.getElementById('tech-stack');
+      if (techStackElement) {
+        const rect = techStackElement.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Check if tech stack section is in viewport
+        if (rect.top < windowHeight * 0.8 && rect.bottom > windowHeight * 0.2) {
+          setVisibleSection('tech-stack');
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const techStacks = [
     {
       category: "Frontend",
@@ -82,15 +105,20 @@ const About = () => {
             </div>
           </div>
         </div>
-        {/* Tech Stack Section - Single Column */}
-        <div className="mb-12 mt-10">
-          <h3 className="text-2xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-8 ">
+        
+        {/* Tech Stack Section with Animation */}
+        <div id="tech-stack" className={`mb-12 mt-10 transition-all duration-1000 ease-out transform ${visibleSection === 'tech-stack'
+          ? 'opacity-100 translate-y-0 scale-100'
+          : 'opacity-60 translate-y-8 scale-95'
+        }`}>
+          <h3 className="text-2xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-8">
             Tech Stack
           </h3>
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {techStacks.map((stack, index) => (
-                <div key={index} className="bg-white/5 dark:bg-black/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-300 hover:scale-105 group">
+                <div key={index} className={`bg-white/5 dark:bg-black/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-300 hover:scale-105 group animate-fadeInUp`}
+                     style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="flex items-center mb-3">
                     <stack.icon className={`h-6 w-6 bg-gradient-to-r ${stack.color} bg-clip-text text-transparent mr-3 group-hover:rotate-12 transition-transform duration-300`} />
                     <h4 className={`text-lg font-semibold bg-gradient-to-r ${stack.color} bg-clip-text text-transparent`}>
