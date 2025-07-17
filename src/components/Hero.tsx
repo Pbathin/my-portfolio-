@@ -15,7 +15,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-start justify-center px-4 sm:px-6 lg:px-8 relative">
+    <section className="min-h-screen flex items-start justify-center px-4 py-15 sm:px-6 lg:px-8 relative">
       <div className="text-center max-w-6xl mx-auto">
         <div className="animate-fade-in">
           {/* Profile Image */}

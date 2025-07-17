@@ -162,9 +162,8 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Contact Form - 70% Width Section Below */}
         <div className="mt-16 flex justify-center">
-          <div className="w-full max-w-4xl" style={{ width: '90%' }}>
+          <div className="w-full max-w-4xl " >
             <div className="bg-white/5 dark:bg-black/5 rounded-2xl border border-white/10 hover:bg-white/10 p-8 h-full dark:hover:bg-black/10    transition-all duration-500 bg-transparen">
               <h3 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-white font-outfit">
                 Send Me a Message

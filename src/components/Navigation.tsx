@@ -29,17 +29,25 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 20; // Reduced offset for better positioning
+      let offsetValue = -10;
+
+      if (sectionId === 'home') {
+        offsetValue = 100;
+      }
+
+      // We subtract the offsetValue to create space *above* the element
+      const scrollPosition = element.offsetTop - offsetValue;
+
       window.scrollTo({
-        top: offsetTop,
+        top: scrollPosition,
         behavior: 'smooth'
       });
     }
+    // This is the crucial change: setIsOpen(false) should be inside this function
     setIsOpen(false);
   };
 
   const downloadResume = () => {
-    // Create a temporary link element to download the resume
     const link = document.createElement('a');
     link.href = 'https://github.com/Pbathin/Resume/raw/main/Athin_PB_Software_Developer.pdf';
     link.download = 'Athin_PB_Software_Developer.pdf';
@@ -75,13 +83,13 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
                   <span>{item.label}</span>
                 </button>
               ))}
-              
+
               {/* Theme Toggle */}
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={onThemeToggle}
-                className="rounded-full w-10 h-10 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 ml-2  "
+                className="rounded-full w-10 h-10 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 ml-2"
               >
                 {isDark ? (
                   <Sun className="h-4 w-4 text-yellow-400 transition-transform duration-300 rotate-0 hover:rotate-12" />
@@ -89,7 +97,7 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
                   <Moon className="h-4 w-4 text-blue-600 transition-transform duration-300 rotate-0 hover:-rotate-12" />
                 )}
               </Button>
-              
+
               <Button
                 onClick={downloadResume}
                 size="sm"
@@ -102,13 +110,13 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden  flex items-end space-x-2 fixed top-4 left-[75%] right-[10px] z-50 transition-all duration-300 ">
+          <div className="md:hidden flex items-end space-x-2 fixed top-4 left-[75%] right-[10px] z-50 transition-all duration-300 ">
             {/* Mobile Theme Toggle */}
             <Button
               variant="ghost"
               size="sm"
               onClick={onThemeToggle}
-              className="rounded-full w-8  h-8 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300"
+              className="rounded-full w-8 h-8 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300"
             >
               {isDark ? (
                 <Sun className="h-4 w-4 text-yellow-400 transition-transform duration-300 rotate-0 hover:rotate-12" />
@@ -116,7 +124,7 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
                 <Moon className="h-4 w-4 text-blue-600 transition-transform duration-300 rotate-0 hover:-rotate-12" />
               )}
             </Button>
-            
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300 backdrop-blur-sm"
