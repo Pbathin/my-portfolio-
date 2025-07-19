@@ -12,41 +12,42 @@ import Autoplay from "embla-carousel-autoplay";
 
 const projects = [
   {
-    title: "Full Stack E-Commerce Platform",
-    description: "A comprehensive e-commerce solution built with React and Node.js, featuring user authentication, payment integration, inventory management, and admin dashboard with real-time analytics.",
+    title: "Daan Sethu ",
+    // description: "A comprehensive e-commerce solution built with React and Node.js, featuring user authentication, payment integration, inventory management, and admin dashboard with real-time analytics.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    tech: ["React", "Node.js", "Express", "MongoDB", "Stripe", "JWT"],
-    github: "https://github.com/Pbathin",
+    tech: ["React Native", "Node.js", "Firebase", "Clerck Expo"],
+    github: "https://github.com/Pbathin/Daan-Sethu",
     demo: "#",
     icon: Globe
-  },
-  {
-    title: "Real-Time Chat Application",
-    description: "A modern chat application with real-time messaging, file sharing, group chats, and user presence indicators. Built with Socket.io for seamless communication experience.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-    tech: ["React", "Socket.io", "Node.js", "Redis", "Material-UI"],
-    github: "https://github.com/Pbathin",
-    demo: "#",
-    icon: Code
-  },
-  {
-    title: "Cloud-Based Task Management System",
-    description: "A collaborative project management tool deployed on AWS with features like task assignment, progress tracking, team collaboration, and automated notifications.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-    tech: ["React", "AWS Lambda", "DynamoDB", "API Gateway", "S3"],
-    github: "https://github.com/Pbathin",
-    demo: "#",
-    icon: Database
-  },
-  {
-    title: "Responsive Portfolio Website",
-    description: "A modern, responsive portfolio website with 3D animations, dark/light theme toggle, and smooth scrolling effects. Optimized for performance and SEO.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    tech: ["React", "Three.js", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/Pbathin",
-    demo: "#",
-    icon: Smartphone
   }
+  // ,
+  // {
+  //   title: "Real-Time Chat Application",
+  //   description: "A modern chat application with real-time messaging, file sharing, group chats, and user presence indicators. Built with Socket.io for seamless communication experience.",
+  //   image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+  //   tech: ["React", "Socket.io", "Node.js", "Redis", "Material-UI"],
+  //   github: "https://github.com/Pbathin",
+  //   demo: "#",
+  //   icon: Code
+  // },
+  // {
+  //   title: "Cloud-Based Task Management System",
+  //   description: "A collaborative project management tool deployed on AWS with features like task assignment, progress tracking, team collaboration, and automated notifications.",
+  //   image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+  //   tech: ["React", "AWS Lambda", "DynamoDB", "API Gateway", "S3"],
+  //   github: "https://github.com/Pbathin",
+  //   demo: "#",
+  //   icon: Database
+  // },
+  // {
+  //   title: "Responsive Portfolio Website",
+  //   description: "A modern, responsive portfolio website with 3D animations, dark/light theme toggle, and smooth scrolling effects. Optimized for performance and SEO.",
+  //   image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+  //   tech: ["React", "Three.js", "Tailwind CSS", "Framer Motion"],
+  //   github: "https://github.com/Pbathin",
+  //   demo: "#",
+  //   icon: Smartphone
+  // }
 ];
 
 const Projects = () => {
@@ -95,7 +96,7 @@ const Projects = () => {
                       {project.title}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed font-outfit line-clamp-3">
-                      {project.description}
+                      {/* {project.description} */}
                     </p>
 
                     <div className="flex flex-wrap gap-1 mb-4">
@@ -124,14 +125,14 @@ const Projects = () => {
                         <Github className="h-3 w-3 mr-1" />
                         Code
                       </Button>
-                      <Button
+                      {/* <Button
                         size="sm"
                         className="flex-1 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 hover:scale-105 transition-all duration-300 hover:shadow-lg text-xs font-outfit"
                         onClick={() => window.open(project.demo, '_blank')}
                       >
                         <ExternalLink className="h-3 w-3 mr-1" />
                         Demo
-                      </Button>
+                      </Button> */}
                     </div>
                   </div>
                 </div>
