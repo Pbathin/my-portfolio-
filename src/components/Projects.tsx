@@ -68,11 +68,11 @@ const Projects = () => {
             align: "start",
             loop: true,
           }}
-          plugins={[
-            Autoplay({
-              delay: 3000,
-            }),
-          ]}
+          // plugins={[
+          //   Autoplay({
+          //     delay: 3000,
+          //   }),
+          // ]}
           className="w-full"
         >
           <CarouselContent className="-ml-2 md:-ml-4">
