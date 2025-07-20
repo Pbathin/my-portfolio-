@@ -77,7 +77,7 @@ const Hero = () => {
             variant="ghost"
             size="lg"
             className="rounded-full w-14 h-14 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 hover:scale-110 hover:shadow-lg"
-            onClick={() => window.open('https://linkedin.com/in/athin-pb', '_blank')}
+            onClick={() => window.open('https://linkedin.com/in/athinpb', '_blank')}
           >
             <Linkedin className="h-6 w-6" />
           </Button>
@@ -85,7 +85,7 @@ const Hero = () => {
             variant="ghost"
             size="lg"
             className="rounded-full w-14 h-14 p-0 backdrop-blur-md bg-white/10 dark:bg-black/10 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 hover:scale-110 hover:shadow-lg"
-            onClick={() => window.open('mailto:athinpb@gmail.com', '_blank')}
+            onClick={() => window.open('mailto:athin04pb@gmail.com', '_blank')}
           >
             <Mail className="h-6 w-6" />
           </Button>
