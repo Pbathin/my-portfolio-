@@ -138,7 +138,7 @@ const Index = () => {
                 LinkedIn
               </a>
               <a
-                href="mailto:athinpb@gmail.com"
+                href="mailto:athin04pb@gmail.com"
                 className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hover:scale-110 transform font-outfit"
               >
                 Email
