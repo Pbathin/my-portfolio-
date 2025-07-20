@@ -66,7 +66,7 @@ const Navigation = ({ isDark, onThemeToggle }: NavigationProps) => {
               onClick={() => scrollToSection('home')}
               className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 font-outfit"
             >
-              Athin PB
+              Athin P B
             </button>
           </div>
 

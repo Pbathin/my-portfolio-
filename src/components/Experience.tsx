@@ -38,10 +38,9 @@ const Experience = () => {
       location: "Manglore",
       duration: "Oct 2023 - Nov 2023",
       description: [
-        "Developed and maintained web applications using React and Java",
-        "Collaborated with cross-functional teams to deliver high-quality software solutions",
-        "Participated in code reviews and followed best practices for software development",
-        "Gained hands-on experience with modern development tools and methodologies"
+        "Developed and deployed a cross-platform mobile application using React Native with a focus on clean UI and seamless user experience.",
+        "Integrated Firebase for real-time database operations and authentication.",
+        "Gained hands-on experience with modern development tools, JavaScript frameworks, and mobile app lifecycle management."
       ],
       technologies: ["React Native", "Firebase", "Mongo DB", "JavaScript", "Git"]
     },
@@ -125,7 +124,7 @@ const Experience = () => {
                   <ul className="space-y-2 mb-4">
                     {exp.description.map((desc, descIndex) => (
                       <li key={descIndex} className="text-gray-600 dark:text-gray-300 leading-relaxed flex items-start">
-                        <span className="text-purple-600 dark:text-purple-400 mr-2 mt-2">•</span>
+                        <span className="text-purple-600 dark:text-purple-400 mr-2 ">•</span>
                         {desc}
                       </li>
                     ))}
