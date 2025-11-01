@@ -31,12 +31,13 @@ const About = () => {
       icon: Code,
       color: "from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400",
       technologies: [
+        { name: "Next.js", icon: "📱" },
         { name: "React", icon: "⚛️" },
+        { name: "React Native", icon: "⚛️" },
         { name: "JavaScript", icon: "🟨" },
-        { name: "HTML5", icon: "🧡" },
-        { name: "CSS3", icon: "🔵" },
+        { name: "MUI", icon: "🔵" },
         { name: "Tailwind CSS", icon: "💨" },
-        { name: "Responsive Design", icon: "📱" }
+       
       ]
     },
     {
