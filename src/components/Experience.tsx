@@ -5,7 +5,7 @@ const Experience = () => {
   const experiences = [
     {
       type: "Internship",
-      title: " Frontend developer Intern",
+      title: " Frontend Developer Intern",
       company: "Tecnotree Corporation",
       location: "Indiranagr, Benagaluru",
       duration: "JULY 2025 - Present",
