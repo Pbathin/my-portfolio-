@@ -4,11 +4,24 @@ import { GraduationCap, Briefcase, Calendar, MapPin } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
+      type: "Internship",
+      title: " Frontend developer Intern",
+      company: "Tecnotree Corporation",
+      location: "Indiranagr, Benagaluru",
+      duration: "JULY 2025 - Present",
+      description: [
+        "Developed and maintained web applications using React and NextJs",
+        "Collaborated with cross-functional teams to deliver high-quality software solutions",
+        "Participated in code reviews and followed best practices for software development",
+      ],
+      technologies: ["Next.JS", "React", "JavaScript", "NodeJS", "Git", "MUI", "CI/CD", "Vitest"]
+    },
+    {
       type: "Training",
       title: "Java full stcak Trainee",
       company: "JSpiders",
       location: "Rajajinagar, Benagaluru",
-      duration: "Feb 2025 - Present",
+      duration: "Feb 2025 - JULY 2025",
       description: [
         "Developed and maintained web applications using React and Java",
         "Collaborated with cross-functional teams to deliver high-quality software solutions",
