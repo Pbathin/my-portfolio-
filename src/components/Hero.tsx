@@ -1,7 +1,7 @@
 
 import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import profile from "/profile.jpg";
+import profile from "/Athin P B.jpeg";
 
 const Hero = () => {
   const downloadResume = () => {
